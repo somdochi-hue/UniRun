@@ -10,17 +10,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rigid;  // 직접 레퍼러싱(Inspector 창에서 직접 넣어주기)
     [SerializeField] [Range(0, 20f)] float jumpSpeed; // Range: Inspector 창에 스크롤 생성.
     [SerializeField] AudioSource jumpSound;
+    [SerializeField] bool isGrounded;
+    [SerializeField] int jumpCount;
+    [Header("애니메이션")]
+    [SerializeField] Animator animator;
+    [Header("게임 오버")]
+    [SerializeField] AudioSource dieSound;
+
 
     // [SerializeField] : 외부에서 공개X / 밖에서 수정 불가능 / 유니티에서 수정 가능.
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") &&
+            jumpCount <= 2)
         {
             Jump();
         }
@@ -28,7 +37,41 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        rigid.linearVelocityY = 5f;
+        rigid.linearVelocityY = jumpSpeed;
         jumpSound.Play();
+        jumpCount++;
+    }
+
+        public void Die()
+    {
+        animator.SetTrigger("Die");
+        rigid.linearVelocity = Vector2.zero;
+        rigid.simulated = false;
+        dieSound.Play();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Platform")
+        {
+            jumpCount = 0;
+            animator.SetBool("Grounded", true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Platform")
+        {
+            animator.SetBool("Grounded", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Dead")
+        {
+            Die();
+        }
     }
 }

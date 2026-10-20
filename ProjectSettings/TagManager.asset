@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dead
   - Platform
+  - Paltform
   layers:
   - Default
   - TransparentFX
