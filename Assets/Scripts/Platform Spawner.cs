@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class PlatformSpawn : MonoBehaviour
+public class PlatformSpawner : MonoBehaviour
 {
     public GameObject platformPrefab;
     public int initCount = 5;
     public Transform spawnPoint;
+    public float yRange = 2f;
     public GameObject[] platfroms;
     private int currentIndex = 0;
     public float  interval = 1f;
-
+    public float  intervalRange = 0.25f;
+    private float currentInterval;
     public float spwanTimer = 0f;
 
     public GameManager gameManager;
@@ -16,7 +18,8 @@ public class PlatformSpawn : MonoBehaviour
 
     private void Start()
     {
-        spwanTimer = interval;
+        currentInterval = Random.Range(-intervalRange, intervalRange);
+        spwanTimer = currentInterval;
     }
     private void Awake()
     {
@@ -37,9 +40,10 @@ public class PlatformSpawn : MonoBehaviour
         
         spwanTimer += Time.deltaTime;
         
-        if (spwanTimer > interval)
+        if (spwanTimer > currentInterval)
         {
             spwanTimer = 0f;
+            currentInterval = interval + Random.Range(-intervalRange, intervalRange);
             Spawn();
         }
     }
@@ -47,7 +51,11 @@ public class PlatformSpawn : MonoBehaviour
     private void Spawn()
     {
         platfroms[currentIndex].SetActive(false);
-        platfroms[currentIndex].transform.position = spawnPoint.position;
+
+        Vector3 point = spawnPoint.position;
+        point.y += Random.Range(-yRange, yRange);
+
+        platfroms[currentIndex].transform.position = point;
         platfroms[currentIndex].SetActive(true);
 
         currentIndex = (currentIndex +1) % platfroms.Length;

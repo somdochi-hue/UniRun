@@ -119,79 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &91789776
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 845536233830362078, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: obstacles.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1729604775241966585, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_Name
-      value: Platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 1729604775241966585, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2979680726676475386, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158669719577410477, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6590376838448127544, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
 --- !u!1 &145832021
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,11 +496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &547498711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1729604775241966585, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
-  m_PrefabInstance: {fileID: 91789776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &587316325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,11 +1448,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6d1032d7ee5e442be514211e20f980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Platformsporn
-  platformPrefab: {fileID: 547498711}
+  platformPrefab: {fileID: 1729604775241966585, guid: 5f9a61bbe52215343b61328102c50f48, type: 3}
   initCount: 5
   spawnPoint: {fileID: 878741304}
+  yRange: 2
   platfroms: []
   interval: 1.3
+  intervalRange: 0.25
   spwanTimer: 0
   gameManager: {fileID: 1692405977}
 --- !u!1 &1703793323
@@ -1739,7 +1663,6 @@ SceneRoots:
   - {fileID: 1857480603}
   - {fileID: 1692405976}
   - {fileID: 8265985240482192304}
-  - {fileID: 91789776}
   - {fileID: 445017788}
   - {fileID: 1216063239}
   - {fileID: 878741304}

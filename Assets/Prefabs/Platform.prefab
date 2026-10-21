@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 2923669897647152887}
   - {fileID: 1733952724520866299}
   obstaclesRatio: 0.3
+  score: 10
 --- !u!1 &1733952724520866299
 GameObject:
   m_ObjectHideFlags: 0

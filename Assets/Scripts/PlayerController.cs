@@ -28,14 +28,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        GameObject findGO = GameObject.FindWithTag("GameController");
-        gameManager = findGO.GetComponent<GameManager>();
+        GameObject findGo = GameObject.FindWithTag("GameController");
+        gameManager = findGo.GetComponent<GameManager>();
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") &&
-            jumpCount <= 1)
+        if(Input.GetMouseButtonDown(0) && jumpCount <= 1)
+        //if (Input.GetButtonDown("Fire1") && jumpCount <= 1)
         {
             Jump();
         }
@@ -59,8 +59,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Platform")
+        if (collision.collider.tag == "Platform" &&
+            collision.contacts[0].normal.y > 0.7f)  // normal -> 면의 방향이 뒤집히지 않았는지 확인.
         {
+
+            isGrounded = true;
             jumpCount = 0;
             animator.SetBool("Grounded", true);
         }
