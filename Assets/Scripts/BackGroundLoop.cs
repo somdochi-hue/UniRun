@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BackGroundLoop : MonoBehaviour
 {
-    public float width = 20.48f;
+    public float width = 20.48f;  // 유니티 화면 사이즈에 맞춤.
     
     private void Update()
     {

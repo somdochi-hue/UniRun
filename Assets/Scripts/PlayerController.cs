@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator animator;
     [Header("게임 오버")]
     [SerializeField] AudioSource dieSound;
-
+    private GameManager gameManager;
 
     // [SerializeField] : 외부에서 공개X / 밖에서 수정 불가능 / 유니티에서 수정 가능.
 
@@ -26,10 +26,16 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        GameObject findGO = GameObject.FindWithTag("GameController");
+        gameManager = findGO.GetComponent<GameManager>();
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Jump") &&
-            jumpCount <= 2)
+            jumpCount <= 1)
         {
             Jump();
         }
@@ -48,6 +54,7 @@ public class PlayerController : MonoBehaviour
         rigid.linearVelocity = Vector2.zero;
         rigid.simulated = false;
         dieSound.Play();
+        gameManager.OnPlayerDead();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

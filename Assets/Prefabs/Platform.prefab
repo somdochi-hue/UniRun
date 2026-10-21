@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 1393929767247613957}
   - component: {fileID: 8112630524901535406}
   - component: {fileID: 3785518407080368171}
+  - component: {fileID: 845536233830362078}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4158669719577410477
 Transform:
   m_ObjectHideFlags: 0
@@ -155,6 +156,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &845536233830362078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729604775241966585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd83af7c9cfddb94ebea4509444c2ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  obstacles:
+  - {fileID: 7428743979466794199}
+  - {fileID: 2923669897647152887}
+  - {fileID: 1733952724520866299}
+  obstaclesRatio: 0.3
 --- !u!1 &1733952724520866299
 GameObject:
   m_ObjectHideFlags: 0
