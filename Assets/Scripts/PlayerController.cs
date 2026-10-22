@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && jumpCount <= 1)
-        //if (Input.GetButtonDown("Fire1") && jumpCount <= 1)
+        //if(Input.GetMouseButton(0) && jumpCount <= 1)
+        if (Input.GetButtonDown("Fire1") && jumpCount <= 1)
         {
             Jump();
         }
@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag == "Platform" &&
             collision.contacts[0].normal.y > 0.7f)  // normal -> 면의 방향이 뒤집히지 않았는지 확인.
         {
-
             isGrounded = true;
             jumpCount = 0;
             animator.SetBool("Grounded", true);

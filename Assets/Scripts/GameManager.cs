@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (IsGameOver && Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButton(0))
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
