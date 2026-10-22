@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //if(Input.GetMouseButton(0) && jumpCount <= 1)
-        if (Input.GetButtonDown("Fire1") && jumpCount <= 1)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
         {
             Jump();
         }
