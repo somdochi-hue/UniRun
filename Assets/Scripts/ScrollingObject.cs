@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour
+public class ScrollingObject : MonoBehaviour
 {
     public float speed = 10f;
 
