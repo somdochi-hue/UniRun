@@ -1,12 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class GameManager : MonoBehaviour
 {
     public static readonly string FormatScore = "SCORE: {0}";
     public TextMeshProUGUI scoreText;
     public GameObject gameOverUI;
+
+    public Image image;
     public bool IsGameOver { get; private set;}
     private int score = 0;
 
